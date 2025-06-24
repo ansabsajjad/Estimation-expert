@@ -1,0 +1,270 @@
+/* 
+ * Animation Styles for Expert Estimation
+ * These styles work with the initAnimations() JavaScript function
+ */
+
+/* Base animation styles */
+[data-animate] {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-animate].animate {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Fade In */
+[data-animate*="fade-in"] {
+    opacity: 0;
+}
+
+[data-animate*="fade-in"].animate {
+    opacity: 1;
+}
+
+/* Slide In From Bottom */
+[data-animate*="slide-up"] {
+    transform: translateY(30px);
+}
+
+[data-animate*="slide-up"].animate {
+    transform: translateY(0);
+}
+
+/* Slide In From Right */
+[data-animate*="slide-left"] {
+    transform: translateX(30px);
+}
+
+[data-animate*="slide-left"].animate {
+    transform: translateX(0);
+}
+
+/* Slide In From Left */
+[data-animate*="slide-right"] {
+    transform: translateX(-30px);
+}
+
+[data-animate*="slide-right"].animate {
+    transform: translateX(0);
+}
+
+/* Zoom In */
+[data-animate*="zoom-in"] {
+    transform: scale(0.95);
+}
+
+[data-animate*="zoom-in"].animate {
+    transform: scale(1);
+}
+
+/* Staggered Animations */
+[data-animate*="stagger"] > * {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+[data-animate*="stagger"].animate > * {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered Animation Delays */
+[data-animate*="stagger"] > *:nth-child(1) { transition-delay: 0.1s; }
+[data-animate*="stagger"] > *:nth-child(2) { transition-delay: 0.2s; }
+[data-animate*="stagger"] > *:nth-child(3) { transition-delay: 0.3s; }
+[data-animate*="stagger"] > *:nth-child(4) { transition-delay: 0.4s; }
+[data-animate*="stagger"] > *:nth-child(5) { transition-delay: 0.5s; }
+[data-animate*="stagger"] > *:nth-child(n+6) { transition-delay: 0.6s; }
+
+/* Animation Durations */
+[data-animate-duration="fast"] {
+    transition-duration: 0.3s !important;
+}
+
+[data-animate-duration="slow"] {
+    transition-duration: 0.9s !important;
+}
+
+/* Animation Delays */
+[data-animate-delay="100"] { animation-delay: 0.1s; transition-delay: 0.1s; }
+[data-animate-delay="200"] { animation-delay: 0.2s; transition-delay: 0.2s; }
+[data-animate-delay="300"] { animation-delay: 0.3s; transition-delay: 0.3s; }
+[data-animate-delay="400"] { animation-delay: 0.4s; transition-delay: 0.4s; }
+[data-animate-delay="500"] { animation-delay: 0.5s; transition-delay: 0.5s; }
+[data-animate-delay="600"] { animation-delay: 0.6s; transition-delay: 0.6s; }
+[data-animate-delay="700"] { animation-delay: 0.7s; transition-delay: 0.7s; }
+[data-animate-delay="800"] { animation-delay: 0.8s; transition-delay: 0.8s; }
+[data-animate-delay="900"] { animation-delay: 0.9s; transition-delay: 0.9s; }
+[data-animate-delay="1000"] { animation-delay: 1s; transition-delay: 1s; }
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from { 
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideLeft {
+    from { 
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideRight {
+    from { 
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to { 
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes zoomIn {
+    from { 
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Animation Classes */
+.animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+}
+
+.animate-slide-down {
+    animation: slideDown 0.6s ease-out forwards;
+}
+
+.animate-slide-left {
+    animation: slideLeft 0.6s ease-out forwards;
+}
+
+.animate-slide-right {
+    animation: slideRight 0.6s ease-out forwards;
+}
+
+.animate-zoom-in {
+    animation: zoomIn 0.6s ease-out forwards;
+}
+
+/* Hover Animations */
+.hover-scale {
+    transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+    transform: scale(1.03);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Loading Animation */
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #fff;
+    animation: spin 1s ease-in-out infinite;
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+/* Button Loading State */
+.btn.is-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn.is-loading::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: spin 0.8s linear infinite;
+}
+
+/* Animation Utilities */
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+.delay-400 { animation-delay: 0.4s; }
+.delay-500 { animation-delay: 0.5s; }
+
+.duration-200 { animation-duration: 0.2s; }
+.duration-300 { animation-duration: 0.3s; }
+.duration-500 { animation-duration: 0.5s; }
+.duration-700 { animation-duration: 0.7s; }
+.duration-1000 { animation-duration: 1s; }
+
+/* Print styles - disable animations */
+@media print {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    [data-animate] {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+}

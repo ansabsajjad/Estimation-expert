@@ -1,0 +1,321 @@
+/**
+ * Expert Estimation - Services Page Styles
+ * Author: Cascade
+ * Version: 1.0
+ */
+
+/* Page Hero Styles */
+.services-hero {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../images/services/services-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    position: relative;
+}
+
+.services-hero .hero-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.services-hero h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.services-hero p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
+/* Services Overview */
+#services-overview {
+    padding: 80px 0 40px;
+    background-color: var(--color-white);
+}
+
+.section-intro {
+    max-width: 800px;
+    margin: 0 auto 40px;
+    text-align: center;
+    line-height: 1.8;
+    color: var(--color-text-light);
+    font-size: 1.1rem;
+}
+
+/* Service Categories */
+#service-categories {
+    padding: 40px 0 80px;
+    background-color: var(--color-white);
+}
+
+.service-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+}
+
+.service-category {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.service-image {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+}
+
+.service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.service-category:hover .service-image img {
+    transform: scale(1.05);
+}
+
+.service-content {
+    padding: 20px;
+}
+
+.service-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+    font-size: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.service-content h2 {
+    margin-bottom: 20px;
+    color: var(--color-primary);
+    font-size: 1.8rem;
+}
+
+.service-content p {
+    margin-bottom: 25px;
+    line-height: 1.7;
+    color: var(--color-text);
+}
+
+.service-features {
+    background-color: var(--color-light-bg);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    margin-bottom: 25px;
+}
+
+.service-features h3 {
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    color: var(--color-primary);
+}
+
+.service-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.service-features li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.service-features li i {
+    color: var(--color-accent);
+    margin-right: 10px;
+    font-size: 0.9rem;
+}
+
+/* Process Section */
+#process {
+    padding: 80px 0;
+    background-color: var(--color-light-bg);
+}
+
+.process-steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 50px;
+    position: relative;
+}
+
+.process-steps::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--color-primary);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.process-step {
+    width: calc(16.666% - 20px);
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.step-number {
+    width: 80px;
+    height: 80px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.8rem;
+    font-weight: 700;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.step-content h3 {
+    margin-bottom: 10px;
+    color: var(--color-primary);
+    font-size: 1.2rem;
+}
+
+.step-content p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--color-text-light);
+}
+
+/* Why Choose Us */
+#why-choose-us {
+    padding: 80px 0;
+    background-color: var(--color-white);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 50px;
+}
+
+.feature-item {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 1.5rem;
+}
+
+.feature-item h3 {
+    margin-bottom: 15px;
+    color: var(--color-primary);
+    font-size: 1.3rem;
+}
+
+.feature-item p {
+    color: var(--color-text);
+    line-height: 1.6;
+}
+
+/* Responsive Styles */
+@media (max-width: 1200px) {
+    .process-step {
+        width: calc(33.333% - 20px);
+        margin-bottom: 40px;
+    }
+    
+    .process-steps::before {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .service-category {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .service-category:nth-child(even) .service-image {
+        order: -1;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-hero {
+        height: 250px;
+    }
+    
+    .services-hero h1 {
+        font-size: 2rem;
+    }
+    
+    .section-intro {
+        font-size: 1rem;
+        padding: 0 20px;
+    }
+    
+    .process-step {
+        width: calc(50% - 20px);
+    }
+    
+    .service-content {
+        padding: 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .process-step {
+        width: 100%;
+    }
+    
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-features {
+        padding: 20px 15px;
+    }
+}

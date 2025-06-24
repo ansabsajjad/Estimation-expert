@@ -1,0 +1,16 @@
+/* Main CSS File - Imports all other CSS files */
+@import url('base.css');
+@import url('components/header.css');
+@import url('components/footer.css');
+@import url('utilities.css');
+@import url('animations.css');
+
+/* Import page-specific styles */
+@import url('pages/home.css');
+@import url('pages/about.css');
+@import url('pages/services.css');
+@import url('pages/projects.css');
+@import url('pages/contact.css');
+
+/* Utilities */
+@import 'utilities.css';

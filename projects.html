@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Projects - Expert Estimation</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header Section -->
+    <header id="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Expert Estimation Logo">
+                </a>
+            </div>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="projects.html" class="active">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="mobile-menu-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </nav>
+            <div class="cta-button">
+                <a href="contact.html" class="btn btn-primary">Request Quote</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section id="page-hero" class="projects-hero">
+        <div class="hero-content">
+            <h1>ESTIMATION CASE STUDIES</h1>
+            <p>Success stories and detailed cost analyses from our completed projects</p>
+        </div>
+    </section>
+
+    <!-- Projects Filter -->
+    <section id="projects-filter">
+        <div class="container">
+            <div class="filter-container">
+                <button class="filter-btn active" data-filter="all">All Case Studies</button>
+                <button class="filter-btn" data-filter="pre-construction">Pre-Construction</button>
+                <button class="filter-btn" data-filter="bid">Bid Estimates</button>
+                <button class="filter-btn" data-filter="cost-control">Cost Control</button>
+                <button class="filter-btn" data-filter="value-engineering">Value Engineering</button>
+                <button class="filter-btn" data-filter="sector">By Sector</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Estimation Case Studies -->
+    <section id="featured-projects">
+        <div class="container">
+            <div class="projects-grid">
+                <!-- Case Study 1 -->
+                <div class="project-card" data-category="pre-construction">
+                    <div class="project-image">
+                        <img src="images/projects/estimation1.jpg" alt="High-Rise Office Tower">
+                        <div class="project-overlay">
+                            <div class="project-category">Pre-Construction</div>
+                            <a href="#project-modal-1" class="view-project">
+                                <i class="fas fa-chart-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Downtown High-Rise Office</h3>
+                        <p>Delivered 98% accurate cost estimate for a 40-story commercial tower, helping secure project financing.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-dollar-sign"></i> $85M Budget</span>
+                            <span><i class="fas fa-percentage"></i> 2% Variance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 2 -->
+                <div class="project-card" data-category="bid">
+                    <div class="project-image">
+                        <img src="images/projects/estimation2.jpg" alt="Residential Complex">
+                        <div class="project-overlay">
+                            <div class="project-category">Bid Estimate</div>
+                            <a href="#project-modal-2" class="view-project">
+                                <i class="fas fa-chart-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Luxury Condo Development</h3>
+                        <p>Prepared competitive bid package that won a $62M residential project against 8 other bidders.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-dollar-sign"></i> $62M Project</span>
+                            <span><i class="fas fa-trophy"></i> Winning Bid</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 3 -->
+                <div class="project-card" data-category="cost-control">
+                    <div class="project-image">
+                        <img src="images/projects/estimation3.jpg" alt="Hospital Expansion">
+                        <div class="project-overlay">
+                            <div class="project-category">Cost Control</div>
+                            <a href="#project-modal-3" class="view-project">
+                                <i class="fas fa-chart-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Hospital Expansion Project</h3>
+                        <p>Implemented cost control measures that saved $3.2M on a $45M healthcare facility expansion.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-dollar-sign"></i> $3.2M Saved</span>
+                            <span><i class="fas fa-calendar-check"></i> On Schedule</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 4 -->
+                <div class="project-card" data-category="value-engineering">
+                    <div class="project-image">
+                        <img src="images/projects/estimation4.jpg" alt="Mixed-Use Development">
+                        <div class="project-overlay">
+                            <div class="project-category">Value Engineering</div>
+                            <a href="#project-modal-4" class="view-project">
+                                <i class="fas fa-chart-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Urban Mixed-Use Development</h3>
+                        <p>Value engineering analysis resulted in 15% cost reduction while maintaining design integrity.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-percentage"></i> 15% Savings</span>
+                            <span><i class="fas fa-thumbs-up"></i> Client Approved</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 5 -->
+                <div class="project-card" data-category="sector">
+                    <div class="project-image">
+                        <img src="images/projects/estimation5.jpg" alt="Educational Facility">
+                        <div class="project-overlay">
+                            <div class="project-category">Education Sector</div>
+                            <a href="#project-modal-5" class="view-project">
+                                <i class="fas fa-chart-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>University Science Center</h3>
+                        <p>Detailed cost plan for a $120M research facility with specialized laboratory requirements.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-dollar-sign"></i> $120M Budget</span>
+                            <span><i class="fas fa-flask"></i> Specialized Labs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Case Study 6 -->
+                <div class="project-card" data-category="sector">
+                    <div class="project-image">
+                        <img src="images/projects/estimation6.jpg" alt="Infrastructure Project">
+                        <div class="project-overlay">
+                            <div class="project-category">Infrastructure</div>
+                            <a href="#project-modal-6" class="view-project">
+                                <i class="fas fa-chart-line"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Regional Transportation Hub</h3>
+                        <p>Comprehensive cost analysis for a multi-modal transportation center serving 50,000+ daily commuters.</p>
+                        <div class="project-stats">
+                            <span><i class="fas fa-subway"></i> Multi-Modal</span>
+                            <span><i class="fas fa-users"></i> 50K+ Daily Users</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card" data-category="residential">
+                    <div class="project-image">
+                        <img src="images/projects/project7.jpg" alt="Apartment Complex">
+                        <div class="project-overlay">
+                            <div class="project-category">Residential</div>
+                            <a href="#project-modal-7" class="view-project">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Apartment Complex</h3>
+                        <p>Modern multi-family housing development with amenities and green spaces.</p>
+                    </div>
+                </div>
+
+                <!-- Project 8 -->
+                <div class="project-card" data-category="renovation">
+                    <div class="project-image">
+                        <img src="images/projects/project8.jpg" alt="Kitchen Remodeling">
+                        <div class="project-overlay">
+                            <div class="project-category">Renovation</div>
+                            <a href="#project-modal-8" class="view-project">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Kitchen Remodeling</h3>
+                        <p>Complete kitchen transformation with custom cabinetry and high-end appliances.</p>
+                    </div>
+                </div>
+
+                <!-- Project 9 -->
+                <div class="project-card" data-category="civil">
+                    <div class="project-image">
+                        <img src="images/projects/project9.jpg" alt="Highway Construction">
+                        <div class="project-overlay">
+                            <div class="project-category">Civil Works</div>
+                            <a href="#project-modal-9" class="view-project">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Highway Construction</h3>
+                        <p>Major infrastructure project involving road construction and traffic management systems.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modals -->
+    <div class="project-modals">
+        <!-- Project Modal 1 -->
+        <div id="project-modal-1" class="project-modal">
+            <div class="modal-content">
+                <span class="close-modal">&times;</span>
+                <div class="modal-header">
+                    <h2>Modern Office Complex</h2>
+                    <p class="project-category">Commercial</p>
+                </div>
+                <div class="modal-body">
+                    <div class="modal-gallery">
+                        <img src="images/projects/project1.jpg" alt="Modern Office Complex" class="main-image">
+                        <div class="gallery-thumbs">
+                            <img src="images/projects/project1-detail1.jpg" alt="Office Exterior" class="thumb">
+                            <img src="images/projects/project1-detail2.jpg" alt="Office Lobby" class="thumb">
+                            <img src="images/projects/project1-detail3.jpg" alt="Office Workspace" class="thumb">
+                        </div>
+                    </div>
+                    <div class="project-details">
+                        <div class="detail-item">
+                            <h3>Client</h3>
+                            <p>Tech Innovations Inc.</p>
+                        </div>
+                        <div class="detail-item">
+                            <h3>Location</h3>
+                            <p>Downtown Business District</p>
+                        </div>
+                        <div class="detail-item">
+                            <h3>Size</h3>
+                            <p>75,000 sq ft</p>
+                        </div>
+                        <div class="detail-item">
+                            <h3>Completion</h3>
+                            <p>March 2024</p>
+                        </div>
+                    </div>
+                    <div class="project-description">
+                        <h3>Project Overview</h3>
+                        <p>This state-of-the-art office complex was designed to meet the needs of modern businesses with a focus on sustainability and employee well-being. The building features:</p>
+                        <ul>
+                            <li>LEED Gold certification</li>
+                            <li>Floor-to-ceiling windows for natural light</li>
+                            <li>Rooftop solar panels</li>
+                            <li>Smart building management system</li>
+                            <li>Collaborative workspaces and private offices</li>
+                            <li>Wellness center and outdoor terrace</li>
+                        </ul>
+                        <p>Our team managed the entire project from initial design through construction and finishing, delivering the completed building on schedule and within budget.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional modals would be added here for each project -->
+    </div>
+
+    <!-- Stats Section -->
+    <section id="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <div class="stat-number" data-count="250">0</div>
+                    <div class="stat-title">Projects Completed</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-number" data-count="120">0</div>
+                    <div class="stat-title">Happy Clients</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div class="stat-number" data-count="15">0</div>
+                    <div class="stat-title">Industry Awards</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <div class="stat-number" data-count="50">0</div>
+                    <div class="stat-title">Team Members</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section id="contact-strip">
+        <div class="container">
+            <div class="contact-strip-content">
+                <h2>Ready to start your project?</h2>
+                <p>Contact us today for a free consultation and estimate.</p>
+                <a href="contact.html" class="btn btn-primary">Request a Quote</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="images/logo-white.png" alt="Expert Estimation Logo">
+                    </div>
+                    <p>Expert Estimation provides quality construction services with a focus on client satisfaction and exceptional craftsmanship.</p>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul class="contact-info">
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Construction Ave, Suite 500<br>New York, NY 10001</li>
+                        <li><i class="fas fa-phone"></i> (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@Expert Estimation.com</li>
+                        <li><i class="fas fa-clock"></i> Mon-Fri: 8:00 AM - 6:00 PM</li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for updates and industry insights.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Expert Estimation. All Rights Reserved.</p>
+                <ul class="footer-bottom-links">
+                    <li><a href="privacy.html">Privacy Policy</a></li>
+                    <li><a href="terms.html">Terms of Service</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#" id="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></a>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/projects.js"></script>
+</body>
+</html>
