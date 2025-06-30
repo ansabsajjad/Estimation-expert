@@ -1,6 +1,6 @@
-# Expert Estimation
+# Xpert Estimation
 
-A professional website for Expert Estimation, offering precise construction estimation services for residential, commercial, and industrial projects.
+A professional website for Xpert Estimation, offering precise construction estimation services for residential, commercial, and industrial projects.
 
 > **Created by Ansab Sajjad**
 
@@ -25,7 +25,7 @@ A professional website for Expert Estimation, offering precise construction esti
 ## 📁 Project Structure
 
 ```
-Expert Estimation/
+Xpert Estimation/
 ├── about.html          # About Us page
 ├── contact.html        # Contact page
 ├── index.html          # Home page
