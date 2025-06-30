@@ -1,9 +1,9 @@
 /**
- * Expert Estimation - Main JavaScript
+ * Xpert Estimation - Main JavaScript
  * Author: Cascade
  * Version: 2.0 - Component-based Architecture
  * 
- * This file contains the main JavaScript functionality for the Expert Estimation website.
+ * This file contains the main JavaScript functionality for the Xpert Estimation website.
  * It follows a modular pattern and works with the component-based architecture.
  */
 
@@ -30,7 +30,7 @@ const App = (function() {
         // Listen for scroll events
         window.addEventListener('scroll', handleScroll);
         
-        console.log('Expert Estimation - Initialized');
+        console.log('Xpert Estimation - Initialized');
     }
     
     // Handle window resize

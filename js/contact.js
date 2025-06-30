@@ -1,5 +1,5 @@
 /**
- * Expert Estimation - Contact Page JavaScript
+ * Xpert Estimation - Contact Page JavaScript
  * Author: Cascade
  * Version: 1.0
  */

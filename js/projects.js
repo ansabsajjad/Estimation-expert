@@ -1,5 +1,5 @@
 /**
- * Expert Estimation - Projects Page JavaScript
+ * Xpert Estimation - Projects Page JavaScript
  * Author: Cascade
  * Version: 1.0
  */
