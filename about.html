@@ -9,6 +9,35 @@
     <link rel="stylesheet" href="css/about.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Newsletter message styles */
+        #newsletterMessage {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        #newsletterMessage.success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        #newsletterMessage.warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        #newsletterMessage.error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -296,10 +325,11 @@
                 <div class="footer-column">
                     <h3>Newsletter</h3>
                     <p>Subscribe to our newsletter for updates and industry insights.</p>
-                    <form class="newsletter-form" action="newsletter.php" method="POST">
-                        <input type="email" placeholder="Your Email" required>
+                    <form id="newsletterForm" class="newsletter-form">
+                        <input type="email" name="subscriber_email" id="subscriber_email" placeholder="Your Email" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
+                    <div id="newsletterMessage"></div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -316,6 +346,43 @@
     <a href="#" id="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></a>
 
     <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/main.js"></script>
+    <script>
+        // Newsletter form submission
+        $(document).ready(function() {
+            $('#newsletterForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    subscriber_email: $('#subscriber_email').val()
+                };
+                
+                $.ajax({
+                    type: 'POST',
+                    url: 'newsletter.php',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        const messageDiv = $('#newsletterMessage');
+                        messageDiv.removeClass('success error warning');
+                        messageDiv.addClass(response.status).text(response.message).fadeIn();
+                        if (response.status === 'success') {
+                            $('#newsletterForm')[0].reset();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        const messageDiv = $('#newsletterMessage');
+                        let errorMessage = 'An error occurred. Please try again.';
+                        try {
+                            const response = JSON.parse(xhr.responseText);
+                            errorMessage = response.message || errorMessage;
+                        } catch (e) {}
+                        messageDiv.removeClass('success warning').addClass('error').text(errorMessage).fadeIn();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

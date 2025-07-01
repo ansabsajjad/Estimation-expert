@@ -6,6 +6,35 @@
     <title>Xpert Estimation - Coming Soon</title>
     <link rel="icon" type="image/png" href="images/fav-icon.png">
     <style>
+        /* Newsletter message styles */
+        #newsletterMessage {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            display: none;
+        }
+        
+        #newsletterMessage.success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        #newsletterMessage.warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        #newsletterMessage.error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+    <style>
         :root {
             --primary-color: #2c3e50;
             --accent-color: #3498db;
@@ -117,10 +146,61 @@
         <p>We're working hard to bring you the best construction estimation services. Our website will be live shortly with all the information you need about our services, expertise, and how we can help with your construction projects.</p>
         <p>Thank you for your patience and interest in Xpert Estimation.</p>
         
+        <div class="newsletter-section" style="margin: 30px 0; padding: 20px 0; border-top: 1px solid #eee; border-bottom: 1px solid #eee;">
+            <h3 style="margin-bottom: 15px; color: var(--primary-color);">Stay Updated</h3>
+            <p style="margin-bottom: 15px;">Subscribe to our newsletter to get notified when we launch!</p>
+            <form id="newsletterForm" style="max-width: 400px; margin: 0 auto; display: flex; gap: 10px;">
+                <input type="email" name="subscriber_email" id="subscriber_email" placeholder="Your email address" required 
+                       style="flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 4px; font-size: 14px;">
+                <button type="submit" style="background-color: var(--accent-color); color: white; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; font-size: 14px; font-weight: 500;">
+                    Subscribe
+                </button>
+            </form>
+            <div id="newsletterMessage" style="margin-top: 10px;"></div>
+        </div>
+        
         <div class="contact-info">
             <p>For urgent inquiries, please contact us at:<br>
             <a href="mailto:info@xpertestimation.com">info@xpertestimation.com</a></p>
         </div>
     </div>
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Newsletter form submission
+        $(document).ready(function() {
+            $('#newsletterForm').on('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    subscriber_email: $('#subscriber_email').val()
+                };
+                
+                $.ajax({
+                    type: 'POST',
+                    url: 'newsletter.php',
+                    data: formData,
+                    dataType: 'json',
+                    success: function(response) {
+                        const messageDiv = $('#newsletterMessage');
+                        messageDiv.removeClass('success error warning');
+                        messageDiv.addClass(response.status).text(response.message).fadeIn();
+                        if (response.status === 'success') {
+                            $('#newsletterForm')[0].reset();
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        const messageDiv = $('#newsletterMessage');
+                        let errorMessage = 'An error occurred. Please try again.';
+                        try {
+                            const response = JSON.parse(xhr.responseText);
+                            errorMessage = response.message || errorMessage;
+                        } catch (e) {}
+                        messageDiv.removeClass('success warning').addClass('error').text(errorMessage).fadeIn();
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>
