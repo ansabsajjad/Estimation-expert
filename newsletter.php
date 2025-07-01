@@ -1,6 +1,16 @@
 <?php
-// Set content type to plain text
-header('Content-Type: text/plain');
+// Set content type to JSON
+header('Content-Type: application/json');
+
+// Function to send JSON response
+function sendResponse($success, $message, $error = false) {
+    echo json_encode([
+        'success' => $success,
+        'message' => $message,
+        'error' => $error
+    ]);
+    exit;
+}
 
 // Database configuration
 $db_host = 'localhost';
@@ -22,16 +32,19 @@ try {
         throw new Exception("Error loading character set utf8mb4: " . $conn->error);
     }
     
-    // Check if the request method is POST
-    if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-        throw new Exception("Invalid request method. Please use POST.");
+    // Check if the request method is POST and is AJAX
+    if ($_SERVER["REQUEST_METHOD"] !== "POST" || empty($_SERVER['HTTP_X_REQUESTED_WITH']) || strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) != 'xmlhttprequest') {
+        sendResponse(false, 'Invalid request', true);
     }
     
     // Get and validate email
-    $email = filter_input(INPUT_POST, 'subscriber_email', FILTER_VALIDATE_EMAIL);
+    if (empty($_POST['subscriber_email'])) {
+        sendResponse(false, 'Email is required', true);
+    }
     
+    $email = filter_var($_POST['subscriber_email'], FILTER_VALIDATE_EMAIL);
     if (!$email) {
-        throw new Exception("Please provide a valid email address.");
+        sendResponse(false, 'Please provide a valid email address', true);
     }
     
     // Prepare and execute the insert statement
@@ -44,13 +57,13 @@ try {
     $stmt->bind_param("s", $email);
     
     if ($stmt->execute()) {
-        echo "Subscribed successfully!";
+        sendResponse(true, 'Subscribed successfully!');
     } else {
         // Check for duplicate entry error (error code 1062 for duplicate entry in MySQL)
         if ($conn->errno === 1062) {
-            echo "You're already subscribed.";
+            sendResponse(false, 'You\'re already subscribed.', true);
         } else {
-            throw new Exception("Error: " . $stmt->error);
+            throw new Exception($stmt->error);
         }
     }
     
@@ -59,11 +72,11 @@ try {
     $conn->close();
     
 } catch (Exception $e) {
-    // Return error message
-    echo "Error: " . $e->getMessage();
+    // Return error message as JSON
+    sendResponse(false, 'Error: ' . $e->getMessage(), true);
     
-    // Log the error for debugging (in a real application, you'd want to log this properly)
-    error_log($e->getMessage());
+    // Log the error for debugging
+    error_log('Newsletter Error: ' . $e->getMessage());
     
     // Make sure to close connection if it was opened
     if (isset($conn) && $conn instanceof mysqli) {
