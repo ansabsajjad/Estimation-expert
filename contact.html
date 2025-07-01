@@ -7,6 +7,35 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/contact.css">
     <link rel="icon" type="image/png" href="images/fav-icon.png">
+    <style>
+        /* Newsletter message styles */
+        #newsletterMessage {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            display: none; /* Will be shown via JavaScript */
+        }
+        
+        #newsletterMessage.success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        #newsletterMessage.warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        #newsletterMessage.error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -347,8 +376,11 @@
                     dataType: 'json',
                     success: function(response) {
                         const messageDiv = $('#newsletterMessage');
-                        messageDiv.removeClass('error').addClass('success').text(response.message).fadeIn();
-                        if (!response.error) {
+                        // Remove all status classes first
+                        messageDiv.removeClass('success error warning');
+                        // Add the appropriate class based on status
+                        messageDiv.addClass(response.status).text(response.message).fadeIn();
+                        if (response.status === 'success') {
                             $('#newsletterForm')[0].reset();
                         }
                     },
@@ -358,7 +390,7 @@
                             const response = JSON.parse(xhr.responseText);
                             errorMessage = response.message || errorMessage;
                         } catch (e) {}
-                        $('#newsletterMessage').removeClass('success').addClass('error').text(errorMessage).fadeIn();
+                        messageDiv.removeClass('success warning').addClass('error').text(errorMessage).fadeIn();
                     }
                 });
             });

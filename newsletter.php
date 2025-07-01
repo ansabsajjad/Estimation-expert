@@ -4,10 +4,19 @@ header('Content-Type: application/json');
 
 // Function to send JSON response
 function sendResponse($success, $message, $error = false) {
+    $status = 'success';
+    
+    if ($error) {
+        $status = 'error';
+    } elseif ($message === 'You\'re already subscribed.') {
+        $status = 'warning';
+    }
+    
     echo json_encode([
         'success' => $success,
         'message' => $message,
-        'error' => $error
+        'error' => $error,
+        'status' => $status
     ]);
     exit;
 }
@@ -73,7 +82,7 @@ try {
     
 } catch (Exception $e) {
     // Return error message as JSON
-    sendResponse(false, 'Error: ' . $e->getMessage(), true);
+    sendResponse(false, $e->getMessage(), true);
     
     // Log the error for debugging
     error_log('Newsletter Error: ' . $e->getMessage());
