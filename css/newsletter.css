@@ -1,0 +1,27 @@
+/* Newsletter message styles */
+#newsletterMessage {
+    padding: 10px;
+    border-radius: 4px;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    display: none;
+}
+
+#newsletterMessage.success {
+    color: #155724;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+}
+
+#newsletterMessage.warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+}
+
+#newsletterMessage.error {
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+}
