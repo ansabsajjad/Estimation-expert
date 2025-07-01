@@ -6,8 +6,36 @@
     <title>Xpert Estimation - Xpert Estimation</title>
     <link rel="icon" type="image/png" href="images/fav-icon.png">
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/newsletter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Newsletter message styles */
+        #newsletterMessage {
+            padding: 10px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 14px;
+            font-weight: 500;
+            display: none; /* Will be shown via JavaScript */
+        }
+        
+        #newsletterMessage.success {
+            color: #155724;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+        }
+        
+        #newsletterMessage.warning {
+            color: #856404;
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+        }
+        
+        #newsletterMessage.error {
+            color: #721c24;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -320,7 +348,7 @@
                         <input type="email" name="subscriber_email" id="subscriber_email" placeholder="Your Email" required>
                         <button type="submit" class="btn btn-primary">Subscribe</button>
                     </form>
-                    <div id="newsletterMessage"></div>
+                    <div id="newsletterMessage" style="margin-top: 10px; display: none;"></div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -337,7 +365,50 @@
     <a href="#" id="back-to-top" aria-label="Back to Top"><i class="fas fa-arrow-up"></i></a>
 
     <!-- Scripts -->
+    <script>
+        document.getElementById('newsletterForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const submitBtn = this.querySelector('button[type="submit"]');
+            const messageDiv = document.getElementById('newsletterMessage');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Subscribing...';
+            messageDiv.style.display = 'none';
+            
+            fetch('newsletter.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    messageDiv.className = 'success';
+                    messageDiv.textContent = data.message;
+                    this.reset();
+                } else {
+                    messageDiv.className = 'error';
+                    messageDiv.textContent = data.message || 'An error occurred. Please try again.';
+                }
+                messageDiv.style.display = 'block';
+                
+                // Reset button after delay
+                setTimeout(() => {
+                    submitBtn.textContent = originalBtnText;
+                    submitBtn.disabled = false;
+                }, 3000);
+            })
+            .catch(error => {
+                messageDiv.className = 'error';
+                messageDiv.textContent = 'Failed to subscribe. Please try again later.';
+                messageDiv.style.display = 'block';
+                submitBtn.textContent = originalBtnText;
+                submitBtn.disabled = false;
+            });
+        });
+    </script>
     <script src="js/main.js"></script>
-    <script src="js/newsletter.js"></script>
 </body>
 </html>
